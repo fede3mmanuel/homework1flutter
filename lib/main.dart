@@ -1,21 +1,12 @@
 import 'package:flutter/material.dart';
 
+import './text_control.dart';
+
 main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    throw _MyAppState();
-  }
-}
-
-class _MyAppState State<MyApp> {
-
-  String _mainText = 'This is the first assignment!12';
-
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,17 +14,7 @@ class _MyAppState State<MyApp> {
         appBar: AppBar(
           title: Text('Assignment 1'),
         ),
-        body: Column(children: [
-          RaisedButton(
-            child: Text('Change Text'),
-            onPressed: () {
-              setState(() {
-                _mainText = 'This changed';
-              });
-            },
-          ),
-          Text(_mainText)
-        ]),
+        body: TextControl(),
       ),
     );
   }
