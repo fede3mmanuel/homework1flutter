@@ -4,7 +4,18 @@ main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    throw _MyAppState();
+  }
+}
+
+class _MyAppState State<MyApp> {
+
+  String _mainText = 'This is the first assignment!12';
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,7 +23,17 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('Assignment 1'),
         ),
-        body: Center(child: Text('This is the first assignment!')),
+        body: Column(children: [
+          RaisedButton(
+            child: Text('Change Text'),
+            onPressed: () {
+              setState(() {
+                _mainText = 'This changed';
+              });
+            },
+          ),
+          Text(_mainText)
+        ]),
       ),
     );
   }
